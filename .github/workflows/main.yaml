@@ -19,3 +19,18 @@ jobs:
       run: npm install
     - name: Uruchomienie
       run: npm test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step 1
+      uses: actions/sheckout@v2
+    - name: Step 2
+      uses: actions/appservice-build@v3
+      with:
+        platform: nodejs
+        platform-version: 13.21.3
+    - name: Wdrożenie aplikacji do Azure App Service
+      uses: azure/webapps-deploy@v1
+      with: 
+        app-name: cwiczenia
+        publish-profile: ${{ secrets.AZURE_WEB_APP_PUBLISH_PROFILE }}

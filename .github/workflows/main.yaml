@@ -24,7 +24,7 @@ jobs:
     needs: [build]
     steps:
     - name: Step 1
-      uses: actions/sheckout@v2
+      uses: actions/checkout@v2
     - name: Step 2
       uses: azure/appservice-build@v3
       with:
